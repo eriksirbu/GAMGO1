@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="GamGo playable sports and casino demo"
+    />
+
+    <title>GamGo — Sports &amp; Casino</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="backdrop" id="backdrop"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <a class="brand" href="#">
+          <span class="brand-bars">
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+
+          GamGo<span>.</span>
+        </a>
+
+        <button
+          class="icon-button close-menu"
+          id="closeMenu"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+      </div>
+
+      <p class="eyebrow nav-label">Menu</p>
+
+      <nav class="navigation">
+        <button class="nav-item active" data-page="Overview">
+          <span class="nav-icon">◇</span>
+          Overview
+        </button>
+
+        <button class="nav-item" data-page="Sports">
+          <span class="nav-icon">○</span>
+          Sports
+        </button>
+
+        <button class="nav-item" data-page="Live Betting">
+          <span class="nav-icon signal">◉</span>
+          Live Betting
+          <b class="count">12</b>
+        </button>
+
+        <button class="nav-item" data-page="Casino">
+          <span class="nav-icon">▦</span>
+          Casino
+        </button>
+
+        <button class="nav-item" data-page="Promotions">
+          <span class="nav-icon">□</span>
+          Rewards
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="invite-card">
+          <div class="gift-icon">+</div>
+
+          <strong>Invite your friends</strong>
+
+          <p>
+            Earn 20 GoPoints for every friend who joins.
+          </p>
+
+          <button>Invite now →</button>
+        </div>
+
+        <button class="nav-item">
+          <span class="nav-icon">?</span>
+          Help &amp; Support
+        </button>
+
+        <div class="profile">
+          <div class="avatar">JB</div>
+
+          <div>
+            <strong>Jordan Blake</strong>
+            <small>ID: 891204</small>
+          </div>
+
+          <span>›</span>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <button
+          class="icon-button menu-button"
+          id="openMenu"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+
+        <label class="search">
+          <span>⌕</span>
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search teams, leagues, or events"
+          />
+        </label>
+
+        <div class="account">
+          <div class="session-clock">
+            <small>Session</small>
+            <strong id="sessionTime">00:00</strong>
+          </div>
+
+          <button
+            class="icon-button notification"
+            aria-label="Notifications"
+          >
+            ◌
+            <i></i>
+          </button>
+
+          <div class="balance">
+            <small>Demo balance</small>
+            <strong class="balance-value">$2,450.80</strong>
+          </div>
+
+          <button
+            class="primary-button"
+            id="earnCreditsButton"
+          >
+            Earn points
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="top-grid">
+          <div class="hero">
+            <div class="hero-copy">
+              <span class="pill">
+                <i></i>
+                No deposits · No real-money losses
+              </span>
+
+              <h1>
+                The thrill.
+                <br />
+                <em>None of the risk.</em>
+              </h1>
+
+              <p>
+                Play familiar games with free demo credits and
+                built-in healthy-play tools.
+              </p>
+
+              <div class="button-row">
+                <button
+                  class="primary-button"
+                  id="dailyCheckin"
+                >
+                  Daily check-in
+                </button>
+
+                <button
+                  class="secondary-button"
+                  id="takeBreak"
+                >
+                  Take a break
+                </button>
+              </div>
+            </div>
+
+            <div class="orbit"></div>
+
+            <div class="hero-ball">
+              <span>GamGo</span>
+            </div>
+          </div>
+
+          <aside class="bet-slip">
+            <div class="section-heading">
+              <h2>
+                Bet slip
+                <small>1</small>
+              </h2>
+
+              <button
+                class="clear-button"
+                aria-label="Clear selection"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="selection">
+              <div class="selection-top">
+                <div>
+                  <small>Match winner</small>
+                  <strong id="selectedTeam">Arsenal</strong>
+                </div>
+
+                <b id="selectedOdd">2.15</b>
+              </div>
+
+              <p id="selectedMatch">
+                Arsenal vs Bayern Munich
+              </p>
+            </div>
+
+            <div class="stake-heading">
+              <label for="stake">Your stake</label>
+
+              <small>
+                Balance
+                <span class="balance-value">$2,450.80</span>
+              </small>
+            </div>
+
+            <div class="stake-input">
+              <span>$</span>
+
+              <input
+                id="stake"
+                type="number"
+                min="1"
+                value="25"
+              />
+
+              <button
+                id="decreaseStake"
+                aria-label="Decrease stake"
+              >
+                −
+              </button>
+
+              <button
+                id="increaseStake"
+                aria-label="Increase stake"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="return-row">
+              <span>Potential return</span>
+
+              <strong id="potentialReturn">
+                $53.75
+              </strong>
+            </div>
+
+            <button
+              class="primary-button place-bet"
+              id="placeBet"
+            >
+              Place bet
+            </button>
+
+            <p class="fine-print" id="betMessage">
+              Odds may change before your bet is placed.
+            </p>
+          </aside>
+        </section>
+
+        <section
+          class="safety-center"
+          id="safetyCenter"
+        >
+          <div class="safety-copy">
+            <p class="eyebrow">Play with support</p>
+
+            <h2>Fun first. Control always.</h2>
+
+            <p>
+              GamGo never sells credits. Game winnings stay
+              virtual; redeemable GoPoints come from check-ins,
+              learning, and healthy-play challenges.
+            </p>
+          </div>
+
+          <div class="safety-tools">
+            <button
+              class="safety-tool"
+              id="setReminder"
+            >
+              <b>20 min</b>
+              <span>Reality reminder</span>
+            </button>
+
+            <button
+              class="safety-tool"
+              id="cooldownButton"
+            >
+              <b>Pause</b>
+              <span>Start cooldown</span>
+            </button>
+
+            <button
+              class="safety-tool"
+              id="resetCredits"
+            >
+              <b>Reset</b>
+              <span>Fresh demo wallet</span>
+            </button>
+
+            <a
+              class="safety-tool support-link"
+              href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <b>Help</b>
+              <span>Support resources</span>
+            </a>
+          </div>
+
+          <p
+            class="safety-message"
+            id="safetyMessage"
+          >
+            Your play session is visible at all times. Take
+            breaks whenever you need one.
+          </p>
+        </section>
+
+        <section class="live-section">
+          <div class="title-row">
+            <div>
+              <p class="eyebrow">Happening now</p>
+              <h2>Live events</h2>
+            </div>
+
+            <button class="text-button">
+              View all ›
+            </button>
+          </div>
+
+          <div
+            class="games-grid"
+            id="gamesGrid"
+          ></div>
+        </section>
+
+        <section
+          class="casino-section"
+          id="casinoGames"
+        >
+          <div class="title-row">
+            <div>
+              <p class="eyebrow">Instant play</p>
+              <h2>GamGo arcade</h2>
+            </div>
+
+            <p class="demo-badge">
+              Demo credits only
+            </p>
+          </div>
+
+          <div class="casino-grid">
+            <button
+              class="casino-card slots-card"
+              data-game-type="slots"
+            >
+              <span class="game-symbol">777</span>
+
+              <span>
+                <b>Neon Slots</b>
+                <small>
+                  Match symbols to win up to 10×
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card roulette-card"
+              data-game-type="roulette"
+            >
+              <span class="game-symbol">0—36</span>
+
+              <span>
+                <b>Quick Roulette</b>
+                <small>
+                  Pick red, black, or green
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card dice-card"
+              data-game-type="dice"
+            >
+              <span class="game-symbol">1—6</span>
+
+              <span>
+                <b>Dice Duel</b>
+                <small>
+                  Predict high or low
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card coin-card"
+              data-game-type="coin"
+            >
+              <span class="game-symbol">H / T</span>
+
+              <span>
+                <b>Coin Flip</b>
+                <small>
+                  Heads or tails for 2×
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card crash-card"
+              data-game-type="crash"
+            >
+              <span class="game-symbol">×</span>
+
+              <span>
+                <b>Sky Crash</b>
+                <small>
+                  Cash out before it drops
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card blackjack-card"
+              data-game-type="blackjack"
+            >
+              <span class="game-symbol">21</span>
+
+              <span>
+                <b>Blackjack</b>
+                <small>
+                  Beat the dealer without busting
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+
+            <button
+              class="casino-card poker-card"
+              data-game-type="poker"
+            >
+              <span class="game-symbol">♠ A</span>
+
+              <span>
+                <b>Video Poker</b>
+                <small>
+                  Draw once and build your best hand
+                </small>
+              </span>
+
+              <i>Play</i>
+            </button>
+          </div>
+        </section>
+
+        <section class="offers-section">
+          <div class="title-row">
+            <div>
+              <p class="eyebrow">
+                GoPoints rewards
+              </p>
+
+              <h2>
+                Healthy-play reward shop
+              </h2>
+            </div>
+
+            <div class="points-balance">
+              <small>Your GoPoints</small>
+              <strong id="pointsBalance">120</strong>
+            </div>
+          </div>
+
+          <div class="offers-grid">
+            <article class="offer violet">
+              <div>
+                <small>
+                  Community reward · 500 points
+                </small>
+
+                <h3>Movie ticket</h3>
+
+                <p>
+                  Earned from check-ins and learning
+                  streaks—not game outcomes.
+                </p>
+
+                <button
+                  class="redeem-button"
+                  data-cost="500"
+                  data-reward="movie ticket"
+                >
+                  Redeem
+                </button>
+              </div>
+
+              <b>FILM</b>
+            </article>
+
+            <article class="offer lime">
+              <div>
+                <small>
+                  Digital reward · 300 points
+                </small>
+
+                <h3>Streaming night</h3>
+
+                <p>
+                  Complete healthy-play goals to unlock
+                  a digital rental credit.
+                </p>
+
+                <button
+                  class="redeem-button"
+                  data-cost="300"
+                  data-reward="streaming night"
+                >
+                  Redeem
+                </button>
+              </div>
+
+              <b>PLAY</b>
+            </article>
+          </div>
+        </section>
+
+        <footer>
+          <p>
+            © 2025 GamGo. Demo entertainment only.
+          </p>
+
+          <div>
+            <span>
+              ✓ Free demo play · No purchases
+            </span>
+
+            <a href="#safetyCenter">
+              Safety tools
+            </a>
+
+            <a
+              href="https://www.ncpgambling.org/help-treatment/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Find help
+            </a>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <div
+      class="game-modal"
+      id="gameModal"
+      aria-hidden="true"
+    >
+      <button
+        class="modal-backdrop"
+        id="modalBackdrop"
+        aria-label="Close game"
+      ></button>
+
+      <section
+        class="game-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gameTitle"
+      >
+        <div class="game-dialog-header">
+          <div>
+            <p class="eyebrow">
+              GamGo arcade
+            </p>
+
+            <h2 id="gameTitle">
+              Game
+            </h2>
+          </div>
+
+          <button
+            class="modal-close"
+            id="closeGame"
+            aria-label="Close game"
+          >
+            ×
+          </button>
+        </div>
+
+        <div
+          class="game-stage"
+          id="gameStage"
+        ></div>
+
+        <div
+          class="game-controls"
+          id="gameControls"
+        ></div>
+
+        <p
+          class="game-status"
+          id="gameStatus"
+        >
+          Choose a bet and play.
+        </p>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
